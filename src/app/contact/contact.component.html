@@ -1,0 +1,71 @@
+<div class="flex flex-column mt-4 bg-gray-100 sm:flex-row">
+    <div class="px-8">    
+    <form [formGroup]="myForm" class="flex flex-column" autocomplete="false" (ngSubmit)="enviarEmail()">
+            <h2 class="text-center">Dejanos tus datos y nosotros te contactamos</h2>
+                <p-floatLabel>
+                    <input 
+                    class="col-10 m-2 p-2 sm:col-7" id="nombre" type="text" pInputText
+                    formControlName="nombre"
+                    />
+                    <label for="nombre">Nombre</label>
+                </p-floatLabel>
+                <span *ngIf="getFieldError('nombre')" class="text-sm text-red-600">{{getFieldError('nombre')}}</span>
+                
+
+                <p-floatLabel>
+                    <input 
+                    formControlName="email"
+                    class="col-10 m-2 p-2 sm:col-7" id="email" type="email" pInputText />
+                    <label for="email">Correo</label>
+                </p-floatLabel>
+                <span *ngIf="getFieldError('email')" class="text-sm text-red-600">{{getFieldError('email')}}</span>
+            
+                <p-floatLabel>
+                    <input 
+                    formControlName="telefono"
+                    class="col-10 m-2 p-2 sm:col-7" id="telefono" type="text" pInputText />
+                    <label for="telefono">Telefono: +xx-xxx</label>
+                </p-floatLabel>
+                <span *ngIf="getFieldError('telefono')" class="text-sm text-red-600">{{getFieldError('telefono')}}</span>
+
+                <p-floatLabel>
+                    <textarea 
+                    formControlName="mensaje"
+                    class="col-10 m-2 p-2 sm:col-7" rows="5" cols="30" [autoResize]="true" 
+                    pInputTextarea>
+                    </textarea>
+                </p-floatLabel>
+                <span *ngIf="getFieldError('mensaje')" class="text-sm text-red-600">{{getFieldError('mensaje')}}</span>
+
+                <p-button
+                (onClick)="enviarEmail()" 
+                class="m-2 py-0" label="Enviar" icon="pi pi-send">
+
+                </p-button>
+        </form>
+    </div>
+
+    <div class="flex flex-column just">
+        <h2 class="text-center">Nuestros canales de comunicacion oficiales</h2>
+        <a href="https://www.instagram.com/houserent.latam/" 
+            target="_blank"
+            rel="noopener noreferrer">
+            <p-button size="large" [text]="true" label="Siguenos en Instagram" icon="pi pi-instagram"></p-button>
+            </a>
+            <a
+            target="_blank"
+            rel="noopener noreferrer"
+             href="https://api.whatsapp.com/send?phone=573006922757">
+                <p-button size="large" [text]="true" class="mt-4" icon="pi pi-whatsapp" 
+                label="Escribenos al Whatsapp"></p-button>
+            </a>
+            
+            <!-- <p-button size="large" [text]="true" class="mt-4" icon="pi pi-send" 
+            label="Envianos un correo y agendamos una cita"></p-button> -->
+    </div>
+        <!-- <div class="flex justify-content-end">
+            <p class="text-right">Comunicate directamente con nosotros, estamos disponibles 24/7</p>
+            <p-button [text]="true" class="mt-4" icon="pi pi-whatsapp" label="Whatsapp"></p-button>
+        </div> -->
+</div>
+
